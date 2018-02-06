@@ -1,8 +1,8 @@
 #!/bin/bash
 
 #$ -N fastQC_04                # name of the job
-#$ -o /data/users/$USER/BioinformaticsSG/FastQC-Analysis/fastqc.out   # contains what would normally be printed to stdout (the$
-#$ -e /data/users/$USER/BioinformaticsSG/FastQC-Analysis/fastqc.err   # file name to print standard error messages to. These m$
+#$ -o /data/users/$USER/BioinformaticsSG/FastQC-Analysis/fastqc_04.out   # contains what would normally be printed to stdout (the$
+#$ -e /data/users/$USER/BioinformaticsSG/FastQC-Analysis/fastqc_04.err   # file name to print standard error messages to. These m$
 #$ -q free64,som,asom       # request cores from the free64, som, asom queues.
 #$ -pe openmp 8-64          # request parallel environment. You can include a minimum and maximum core count.
 #$ -m beas                  # send you email of job status (b)egin, (e)rror, (a)bort, (s)uspend
