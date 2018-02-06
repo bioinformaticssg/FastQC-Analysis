@@ -13,7 +13,8 @@ module load fastqc/0.11.5   # use the second to latest version, the newest versi
 
 DATA_DIR=/data/users/$USER/BioinformaticsSG/griffith_data/reads
 QC_OUT_DIR=/data/users/$USER/BioinformaticsSG/FastQC-Analysis/fastqc_results_04
-QC_HTML_DIR=/data/users/$USER/BioinformaticsSG/FastQC-Analysis/fastqc_results_04/fastqc_html_04
+# QC_HTML_DIR=/data/users/$USER/BioinformaticsSG/FastQC-Analysis/fastqc_results_04/fastqc_html_04
+HTML="fastqc_html_04"
 
 mkdir -p ${QC_OUT_DIR}
 mkdir -p ${QC_HTML_DIR}
@@ -25,4 +26,4 @@ for FILE in `find ${DATA_DIR} -name \*`; do
     mv ${QC_OUT_DIR}/*.html ${QC_HTML_DIR}
 done
 
-tar -C ${QC_OUT_DIR} -czvf ${QC_HTML_DIR}.tar.gz ${QC_HTML_DIR}/*
+tar -C ${QC_OUT_DIR} -czvf ${HTML}.tar.gz ${HTML}
