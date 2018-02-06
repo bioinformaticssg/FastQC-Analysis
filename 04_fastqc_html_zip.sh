@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#$ -N fastQC_04                # name of the job
+#$ -N fastQC_04             # name of the job
 #$ -o /data/users/$USER/BioinformaticsSG/FastQC-Analysis/fastqc_04.out   # contains what would normally be printed to stdout (the$
 #$ -e /data/users/$USER/BioinformaticsSG/FastQC-Analysis/fastqc_04.err   # file name to print standard error messages to. These m$
 #$ -q free64,som,asom       # request cores from the free64, som, asom queues.
