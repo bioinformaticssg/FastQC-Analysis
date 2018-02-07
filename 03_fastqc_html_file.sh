@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#$ -N fastQC_03                # name of the job
+#$ -N fastQC_03             # name of the job
 #$ -o /data/users/$USER/BioinformaticsSG/FastQC-Analysis/fastqc_03.out   # contains what would normally be printed to stdout (the$
 #$ -e /data/users/$USER/BioinformaticsSG/FastQC-Analysis/fastqc_03.err   # file name to print standard error messages to. These m$
 #$ -q free64,som,asom       # request cores from the free64, som, asom queues.
@@ -20,14 +20,13 @@ mkdir -p ${QC_OUT_DIR}
 # Making the HTML result file directory
 mkdir -p ${QC_HTML_DIR}          
 
-# Performing a loop that will use each file in the data directory, "*" is a wild card symbol and in this context matches any file in the indicated directory
-# Each file will be processed with the program "fastqc", "\" symbol indicates that more options for the program are on the next line
-# This indicates the output directory for the result files
+# Here we are performing a loop that will use each file in our data directory as input, "*" is a wild card symbol and in this context matches any file in the indicated directory
+# Each file will be processed with the program "fastqc", "\" symbol indicates that more options for the program are on the next line 
+# (--outdir) indicates the output directory for the result files
 # (mv) moves the HTML result files to the new HTML result file directory
-
-for FILE in `find ${DATA_DIR} -name \*`; do           
-    fastqc $FILE \                                    
-    -o ${QC_OUT_DIR}                                  
+for FILE in `find ${DATA_DIR} -name \*`; do
+    fastqc $FILE \
+    -o ${QC_OUT_DIR}
     
-    mv ${QC_OUT_DIR}/*.html ${QC_HTML_DIR}            
+    mv ${QC_OUT_DIR}/*.html ${QC_HTML_DIR}
 done
