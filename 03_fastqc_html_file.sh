@@ -11,9 +11,12 @@
 module load blcr
 module load fastqc/0.11.7
 
-DATA_DIR=/data/users/$USER/BioinformaticsSG/griffith_data/reads                                     # The directory where the data we want to analyze is located
-QC_OUT_DIR=/data/users/$USER/BioinformaticsSG/FastQC-Analysis/fastqc_results_03                     # The directory where we want the result files to go
-QC_HTML_DIR=/data/users/$USER/BioinformaticsSG/FastQC-Analysis/fastqc_results_03/fastqc_html_03     # The directory where we want our HTML result files to go
+# The directory where the data we want to analyze is located
+DATA_DIR=/data/users/$USER/BioinformaticsSG/griffith_data/reads
+# The directory where we want the result files to go
+QC_OUT_DIR=/data/users/$USER/BioinformaticsSG/FastQC-Analysis/fastqc_results_03
+# The directory where we want our HTML result files to go
+QC_HTML_DIR=/data/users/$USER/BioinformaticsSG/FastQC-Analysis/fastqc_results_03/fastqc_html_03
 
 # Making the result file directory
 mkdir -p ${QC_OUT_DIR}
