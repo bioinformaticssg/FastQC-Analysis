@@ -15,12 +15,19 @@ DATA_DIR=/data/users/$USER/BioinformaticsSG/griffith_data/reads                 
 QC_OUT_DIR=/data/users/$USER/BioinformaticsSG/FastQC-Analysis/fastqc_results_03                     # The directory where we want the result files to go
 QC_HTML_DIR=/data/users/$USER/BioinformaticsSG/FastQC-Analysis/fastqc_results_03/fastqc_html_03     # The directory where we want our HTML result files to go
 
-mkdir -p ${QC_OUT_DIR}           # Making the result file directory
-mkdir -p ${QC_HTML_DIR}          # Making the HTML result file directory
+# Making the result file directory
+mkdir -p ${QC_OUT_DIR}
+# Making the HTML result file directory
+mkdir -p ${QC_HTML_DIR}          
 
-for FILE in `find ${DATA_DIR} -name \*`; do           # Performing a loop that will use each file in the data directory, "*" is a wild card symbol and in this context matches any file in the indicated directory
-    fastqc $FILE \                                    # Each file will be processed with the program "fastqc", "\" symbol indicates that more options for the program are on the next line
-    -o ${QC_OUT_DIR}                                  # This indicates the output directory for the result files
+# Performing a loop that will use each file in the data directory, "*" is a wild card symbol and in this context matches any file in the indicated directory
+# Each file will be processed with the program "fastqc", "\" symbol indicates that more options for the program are on the next line
+# This indicates the output directory for the result files
+# (mv) moves the HTML result files to the new HTML result file directory
+
+for FILE in `find ${DATA_DIR} -name \*`; do           
+    fastqc $FILE \                                    
+    -o ${QC_OUT_DIR}                                  
     
-    mv ${QC_OUT_DIR}/*.html ${QC_HTML_DIR}            # Moves the HTML result files to the new HTML result file directory
+    mv ${QC_OUT_DIR}/*.html ${QC_HTML_DIR}            
 done
