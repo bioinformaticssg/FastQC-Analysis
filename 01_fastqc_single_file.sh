@@ -26,7 +26,7 @@ mkdir -p ${QC_OUT_DIR}
 # Each file will be processed with the program "fastqc", "\" symbol indicates that more options for the program are on the next line 
 # (-o) indicates the output directory for the result files
 
-for FILE in `find ${DATA_DIR} -name ${FILE}`; do       
-    fastqc $FILE \                                     
-    --outdir ${QC_OUT_DIR}                                   
+for FILE in `find ${DATA_DIR} -name ${FILE}`; do
+    fastqc $FILE \
+    --outdir ${QC_OUT_DIR}
 done
