@@ -22,9 +22,9 @@ FILE="HBR_1_R1.fq.gz"
 # Making the result file directory
 mkdir -p ${QC_OUT_DIR}     
 
-# Performing a loop that will use each file in our data directory
+# Here we are performing a loop that will use each file in our data directory as input
 # Each file will be processed with the program "fastqc", "\" symbol indicates that more options for the program are on the next line 
-# (-o) indicates the output directory for the result files
+# (--outdir) indicates the output directory for the result files
 
 for FILE in `find ${DATA_DIR} -name ${FILE}`; do
     fastqc $FILE \
