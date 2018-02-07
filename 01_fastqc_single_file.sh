@@ -28,5 +28,5 @@ mkdir -p ${QC_OUT_DIR}
 
 for FILE in `find ${DATA_DIR} -name ${FILE}`; do       
     fastqc $FILE \                                     
-    -o ${QC_OUT_DIR}                                   
+    --outdir ${QC_OUT_DIR}                                   
 done
