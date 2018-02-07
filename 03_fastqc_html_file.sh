@@ -9,7 +9,7 @@
 #$ -ckpt blcr               # (c)heckpoint: writes a snapshot of a process to disk, (r)estarts the process after the checkpoint is c$
 
 module load blcr
-module load fastqc/0.11.5   # use the second to latest version, the newest version (0.11.7) does not work at the moment
+module load fastqc/0.11.7
 
 DATA_DIR=/data/users/$USER/BioinformaticsSG/griffith_data/reads                                     # The directory where the data we want to analyze is located
 QC_OUT_DIR=/data/users/$USER/BioinformaticsSG/FastQC-Analysis/fastqc_results_03                     # The directory where we want the result files to go
