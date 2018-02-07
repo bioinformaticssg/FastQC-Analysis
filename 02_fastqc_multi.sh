@@ -9,14 +9,21 @@
 #$ -ckpt blcr               # (c)heckpoint: writes a snapshot of a process to disk, (r)estarts the process after the checkpoint is c$
 
 module load blcr
-module load fastqc/0.11.5   # use the second to latest version, the newest version (0.11.7) does not work at the moment
+module load fastqc/0.11.7
 
-DATA_DIR=/data/users/$USER/BioinformaticsSG/griffith_data/reads                       # The directory where the data we want to analyze is located
-QC_OUT_DIR=/data/users/$USER/BioinformaticsSG/FastQC-Analysis/fastqc_results_02       # The directory where we want the result files to go
+# The directory where the data we want to analyze is located
+DATA_DIR=/data/users/$USER/BioinformaticsSG/griffith_data/reads
+# The directory where we want the result files to go
+QC_OUT_DIR=/data/users/$USER/BioinformaticsSG/FastQC-Analysis/fastqc_results_02
 
-mkdir -p ${QC_OUT_DIR}      # Making the result file directory
+# Making the result file directory
+mkdir -p ${QC_OUT_DIR}
 
-for FILE in `find ${DATA_DIR} -name \*`; do          # Performing a loop that will use each file in the data directory, "*" is a wild card symbol and in this context matches any file in the indicated directory
-    fastqc $FILE \                                   # Each file will be processed with the program "fastqc", "\" symbol indicates that more options for the program are on the next line
-    -o ${QC_OUT_DIR}                                 # This indicates the output directory for the result files
+# Performing a loop that will use each file in the data directory, "*" is a wild card symbol and in this context matches any file in the indicated directory
+# Each file will be processed with the program "fastqc", "\" symbol indicates that more options for the program are on the next line
+# (--outdir) the output directory for the result files
+
+for FILE in `find ${DATA_DIR} -name \*`; do
+    fastqc $FILE \
+    -o ${QC_OUT_DIR}
 done
