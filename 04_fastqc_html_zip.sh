@@ -26,7 +26,7 @@ mkdir -p ${QC_HTML_DIR}         # Making the HTML result file directory
 
 for FILE in `find ${DATA_DIR} -name \*`; do
     fastqc $FILE \
-    -o ${QC_OUT_DIR}
+    --outdir ${QC_OUT_DIR}
     
     mv ${QC_OUT_DIR}/*.html ${QC_HTML_DIR}
 done
